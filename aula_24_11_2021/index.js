@@ -3,6 +3,18 @@ const EventEmitter = require('events');
 
 const event = new EventEmitter()
 
+const lista = [
+    {
+        apelido: 'lucio',
+        nome: 'Lucio Oliveira',
+        email: 'lucio.oliveira@lets.code.com'
+    },
+    {
+        apelido: 'erich',
+        nome: 'Erich',
+        email: 'erich@lets.code.com'
+    }
+]
 
 
 setInterval(() => {
