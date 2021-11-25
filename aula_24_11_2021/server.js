@@ -12,7 +12,7 @@ http.createServer((req, res) => {
     }
     else if(req.url === '/ola/json'){
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(`{'nome': 'lucio'}`)
+        res.end(`{'nome': 'erich'}`)
     }
     else {
         res.writeHead(404);
