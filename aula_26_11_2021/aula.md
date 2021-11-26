@@ -7,15 +7,15 @@
 #Atividade
 
 Criar uma aplicação para criação de usuários e armazenar os dados em um arquivo.
-* POST /usuarios
-* GET /usuarios
-* PUT /usuarios/{id}
-* DELETE /usuarios/{id}
+
+* GET /contatos
+* GET /contatos/{apelido}
+* POST /contatos
+* PUT /contatos/{apelido}
+* DELETE /contatos/{apelido}
 
 
 Dados dos usuários;
-* id
 * nome
 * email
-* endereco
-* cpf
+* apelido

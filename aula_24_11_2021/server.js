@@ -1,8 +1,11 @@
 const http = require('http')
 
-
 http.createServer((req, res) => {
-    
+    console.log(req.method)
+
+    req.on('data', chunk => {
+        console.log(JSON.parse(chunk))
+    })
     if(req.url === '/'){
         res.end(`<h1>Home</h1>`)
     }
