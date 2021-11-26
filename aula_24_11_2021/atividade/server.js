@@ -20,7 +20,7 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     if(url === '/health')
         res.end(JSON.stringify(getStatus()))
-    else if (url === '/contatos'){
+    else if (url === '/contatos' && req.method === 'GET'){
         res.end(JSON.stringify(contatos))
     } else if (url.includes('/contatos/')){
         const contato = getContato(url)
