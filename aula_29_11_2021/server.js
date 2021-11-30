@@ -1,7 +1,8 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
+console.clear()
 
-const clients = []
+let clients = []
 
 function addClient(address, port, name){
     const client = clients.find(client => client.address == address && client.port == port)
@@ -12,6 +13,7 @@ function addClient(address, port, name){
             name
         }]
     }
+    console.log(JSON.stringify(clients))
 }
 
 server.on('error', (err) => {
@@ -21,16 +23,16 @@ server.on('error', (err) => {
 
 server.on('message', (msg, rinfo) => {
     console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-
-
     const client = JSON.parse(msg)
-    addClient(client.name, rinfo.port, rinfo.address)
+    addClient(rinfo.address, rinfo.port, client.name)
     const msgSend = {
         name: client.name,
         msg: client.msg
     }
     clients.forEach(c => {
-        server.send(Buffer.from(JSON.stringify(msgSend)), c.port, c.address);
+        if(c.name !== client.name){
+            server.send(Buffer.from(JSON.stringify(msgSend)), c.port, c.address)
+        }
     })
 });
 
