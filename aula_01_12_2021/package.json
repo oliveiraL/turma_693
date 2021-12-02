@@ -1,0 +1,14 @@
+{
+  "name": "aula_01_12_2021",
+  "version": "1.0.0",
+  "description": "Aula para treinar conceitos de http e axios",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
