@@ -1,5 +1,6 @@
 const os = require('os');
 const http = require('http')
+const fs = require('fs');
 
 const contatos = [
     {
@@ -15,10 +16,13 @@ const contatos = [
 ]
 
 
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
     const url = req.url
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    if(url === '/health')
+    if(url === '/path'){
+        const paths = await fs.promises.readdir(__dirname)
+        res.end(JSON.stringify(paths))
+    } else if(url === '/health')
         res.end(JSON.stringify(getStatus()))
     else if (url === '/contatos' && req.method === 'GET'){
         res.end(JSON.stringify(contatos))
