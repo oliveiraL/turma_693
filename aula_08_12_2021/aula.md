@@ -16,6 +16,10 @@ docker run --name letscode-postgres -e "POSTGRES_PASSWORD=admin" -p 5432:5432 -d
 
 docker exec -it letscode-postgres psql -U postgres
 
+create database contatos;
+
+docker exec -it letscode-postgres psql -U postgres - d contatos
+
 create table contato(
     contato_id int primary key,
     apelido varchar(255),
